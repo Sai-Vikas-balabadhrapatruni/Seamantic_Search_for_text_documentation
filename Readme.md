@@ -29,8 +29,9 @@ pip install nltk PyPDF2 gensim elasticsearch
 
    ```bash
    cd your-repository
-   pip install -r requirements.txt
+   pip install numpy pandas nltk tensorflow elasticsearch gensim
    ```
+   Follow the ElasticSearch Guide (https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html) to install it on the machine 
 
 3. **Configure Elasticsearch:**
 
