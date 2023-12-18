@@ -1,5 +1,3 @@
-# README.md for Document Search with Word Embeddings
-
 This Python script utilizes natural language processing and word embeddings to create a document search system with Elasticsearch. It includes functionality to index and search technical documents based on their content and embeddings.
 
 ## Prerequisites
@@ -24,7 +22,7 @@ pip install nltk PyPDF2 gensim elasticsearch
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/your-username/your-repository.git
+   git clone https://github.com/Sai-Vikas-balabadhrapatruni/Seamantic_Search_for_text_documentation.git
    ```
 
 2. **Install Dependencies:**
