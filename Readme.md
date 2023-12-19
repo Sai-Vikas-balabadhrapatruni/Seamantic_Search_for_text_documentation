@@ -47,7 +47,7 @@ This Python script provides functionalities for processing job listing data and 
 ## Example Output
 Below is a screenshot of the terminal output after performing a semantic search for job listings:
 
-![Semantic Search Output](D:\Projects\Semantic_search\output.png "Semantic Search Output")
+![Semantic Search Output](output.png "Semantic Search Output")
 
 ## Note
 Ensure Elasticsearch is running and accessible before executing the script. Adjust configurations and data paths as per your environment.
