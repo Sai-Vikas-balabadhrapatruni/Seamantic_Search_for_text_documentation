@@ -1,63 +1,53 @@
-This Python script utilizes natural language processing and word embeddings to create a document search system with Elasticsearch. It includes functionality to index and search technical documents based on their content and embeddings.
+# Text Processing using Semantic Search with Elasticsearch Integration
 
-## Prerequisites
+## Overview
+This Python script provides functionalities for processing job listing data and integrating it with Elasticsearch for semantic search capabilities. It includes text cleaning, tokenization, stop-word removal, stemming, Word2Vec model training, and setting up Elasticsearch for indexing and querying job listings.
 
-Make sure you have the following dependencies installed:
-
+## Requirements
 - Python 3.x
-- NLTK (Natural Language Toolkit)
-- PyPDF2
-- Gensim
-- Elasticsearch
-- Elasticsearch Python client
+- Libraries: NLTK, pandas, Gensim, Elasticsearch, numpy
+- Elasticsearch Server
 
-You can install the required Python packages using:
+## Installation
+1. Install required Python packages:
+   ```bash
+   pip install nltk pandas gensim elasticsearch numpy
+   ```
 
-```bash
-pip install nltk PyPDF2 gensim elasticsearch
-```
+2. Download necessary NLTK data:
+   ```python
+   import nltk
+   nltk.download('punkt')
+   nltk.download('stopwords')
+   ```
 
 ## Usage
+1. **Data Cleaning:** `clean_text` function cleans the text data from a CSV file. It standardizes new lines and spaces, and handles missing values.
 
-1. **Clone the Repository:**
+2. **CSV Loading:** `load_csv` function reads a CSV file and applies the cleaning function to specified columns.
 
-   ```bash
-   git clone https://github.com/Sai-Vikas-balabadhrapatruni/Seamantic_Search_for_text_documentation.git
-   ```
+3. **Text Preprocessing:** `preprocess_document` performs tokenization, stop-word removal, and stemming on the provided text.
 
-2. **Install Dependencies:**
+4. **Word2Vec Model Training:** `train_word2vec_model` trains a Word2Vec model on preprocessed text documents.
 
-   ```bash
-   cd your-repository
-   pip install numpy pandas nltk tensorflow elasticsearch gensim
-   ```
-   Follow the ElasticSearch Guide (https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html) to install it on the machine 
+5. **Elasticsearch Setup:** `setup_elasticsearch` configures the connection to the Elasticsearch server.
 
-3. **Configure Elasticsearch:**
+6. **Index Creation:** `create_index` function creates an index in Elasticsearch with predefined settings.
 
-   Ensure that you have an Elasticsearch instance running. Modify the Elasticsearch connection details in the `main()` function:
+7. **Data Indexing:** `index_data` indexes the preprocessed job listing data into Elasticsearch.
 
-   ```python
-   es = Elasticsearch([{'host': 'localhost', 'port': 9200, 'scheme': 'https'}], basic_auth=('elastic', 'your-password'), verify_certs=False, ssl_show_warn=False)
-   ```
+8. **Semantic Search:** `semantic_search` performs a query on the indexed data, leveraging the Word2Vec model for enhanced search capabilities.
 
-4. **Run the Script:**
+9. **Main Execution:** Run the script to load data, preprocess it, setup Elasticsearch, and perform semantic searches.
 
-   Execute the script by running:
+## Configuration
+- Update Elasticsearch host, port, and credentials in `setup_elasticsearch` function.
+- Modify CSV file path and column names in `load_csv` and `index_data` as per your dataset.
 
-   ```bash
-   python your_script_name.py
-   ```
+## Example Output
+Below is a screenshot of the terminal output after performing a semantic search for job listings:
 
-   This will load a sample PDF document (`Technical_report.pdf`), preprocess it, train a Word2Vec model, and index it in Elasticsearch. It then performs a sample search using the query "GPT-4 benchmarks."
+![Semantic Search Output](D:\Projects\Semantic_search\output.png "Semantic Search Output")
 
-## Customization
-
-- **PDF Input:**
-  - Change the `pdf_path` variable in the `main()` function to point to your desired PDF document.
-
-- **Word Embedding Model:**
-  - Adjust the parameters in the `train_word2vec_model` function for the Word2Vec model according to your preferences.
-
-- **Search Query:**
-  - Modify the `user_query` variable in the `main()` function to test different search queries.
+## Note
+Ensure Elasticsearch is running and accessible before executing the script. Adjust configurations and data paths as per your environment.
